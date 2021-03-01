@@ -14,19 +14,20 @@
 | birth_day  | date | null: false |
 ### Association
 
-- has_many :products 
-- has_many :buyer, through: historys
+- has_many :histories
+- has_many :products , through: histories
 
-## product テーブル
+## products テーブル
 
 | Column | Type   | Options     |
 | ------ | ------ | ----------- |
 | name   | string | null: false |
 | introduction| text | null: false |
-| category_id   | integer | null: false, foreign_key: true |
-| status_id   | integer | null: false, foreign_key: true |
-| sent_fee_id   | integer | null: false, foreign_key: true |
-| sent_area_id   | integer | null: false, foreign_key: true |
+| category_id   | integer | null: false |
+| status_id   | integer | null: false |
+| sent_fee_id   | integer | null: false |
+| sent_area_id   | integer | null: false |
+| arrival_period_id   | integer | null: false |
 | price   | integer | null: false, foreign_key: true |
 | user   | references | null: false, foreign_key: true |
 
@@ -41,12 +42,12 @@
 - belongs_to :sent_area 
 
 
-## buyer テーブル
+## 	buyersテーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
 | post_code  | string     | null: false                    |
-| prefecture_id   | references | null: false, foreign_key: true |
+| sent_area_id   | integer | null: false |
 | city_id   | references | null: false, foreign_key: true |
 | address  | string     | null: false                    |
 | building_name  | string     |                  |
@@ -62,8 +63,8 @@
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
-| user_id   | references | null: false, foreign_key: true |
-| product_id  | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
+| product  | references | null: false, foreign_key: true |
 
 
 - belongs_to :user 

@@ -36,7 +36,7 @@
 ### Association
 
 - belongs_to :user 
-- has_one buyer
+- has_one history
 
 
 ## 	buyersテーブル
@@ -45,7 +45,7 @@
 | ------ | ---------- | ------------------------------ |
 | post_code  | string     | null: false                    |
 | sent_area_id   | integer | null: false |
-| city_id   | references | null: false, foreign_key: true |
+| city  | string | null: false |
 | address  | string     | null: false                    |
 | building_name  | string     |                  |
 | phone_number  | string     | null: false                    |
@@ -56,7 +56,7 @@
 
 - belongs_to :history 
 
-## history テーブル
+## histories テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |

@@ -15,7 +15,7 @@
 ### Association
 
 - has_many :histories
-- has_many :products , through: histories
+- has_many :products 
 
 ## products テーブル
 
@@ -28,7 +28,7 @@
 | sent_fee_id   | integer | null: false |
 | sent_area_id   | integer | null: false |
 | arrival_period_id   | integer | null: false |
-| price   | integer | null: false, foreign_key: true |
+| price   | integer | null: false|
 | user   | references | null: false, foreign_key: true |
 
 
@@ -36,10 +36,7 @@
 ### Association
 
 - belongs_to :user 
-- belongs_to :category 
-- belongs_to :status 
-- belongs_to :sent_fee 
-- belongs_to :sent_area 
+- has_one buyer
 
 
 ## 	buyersテーブル

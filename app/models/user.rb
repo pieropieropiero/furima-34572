@@ -14,7 +14,7 @@ class User < ApplicationRecord
          validates :password, presence: true, length: { minimum: 6 }, confirmation: true, \
                               format: { with: PASSWORD_REGEX, message: 'は英字と数字の両方を含めて設定してください' }
        
-         with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: 'は全角（漢字・ひらがな・カタカナ）を使用してください' } do
+         with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龠々]+\z/, message: 'は全角（漢字・ひらがな・カタカナ）を使用してください' } do
            validates :last_name
            validates :first_name
          end

@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         has_many :histories
+    #     has_many :histories 後で多分必要？？
          has_many :products
        
          validates :nickname, presence: true

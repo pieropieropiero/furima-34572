@@ -88,6 +88,21 @@ RSpec.describe Product, type: :model do
         @product.valid?
         expect(@product.errors.full_messages).to include("Price is not included in the list")
       end
+      it "priceが全角文字では出品できない" do
+        @product.price = "１０００"
+        @product.valid?
+        expect(@product.errors.full_messages).to include("Price is not included in the list")
+      end
+      it "priceが半角英数混合では出品できない" do
+        @product.price = "58ut7"
+        @product.valid?
+        expect(@product.errors.full_messages).to include("Price is not included in the list")
+      end
+      it "priceが半角英語だけでは出品できない" do
+        @product.price = "yuldkf"
+        @product.valid?
+        expect(@product.errors.full_messages).to include("Price is not included in the list")
+      end
       it "imageが空では出品できない" do
         @product.image = nil
         @product.valid?

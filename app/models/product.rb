@@ -1,7 +1,6 @@
 class Product < ApplicationRecord
 
-  validates :name, presence: true
-  validates :introduction, presence: true
+  validates :name, :introduction, presence: true
 
   validates :category_id, :status_id, :sent_fee_id, :sent_area_id, :arrival_period_id, :price, :image, presence: true
   validates :category_id, :status_id, :sent_fee_id, :sent_area_id, :arrival_period_id, numericality: { other_than: 1 }

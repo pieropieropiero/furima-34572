@@ -123,7 +123,7 @@
   <%# 商品一覧 %>
   <div class='item-contents'>
     <h2 class='title'>ピックアップカテゴリー</h2>
-    <%= link_to '新規投稿商品', "/products/show", class: "subtitle" %>
+    <%= link_to '新規投稿商品', new_product_path, class: "subtitle" %>
     <ul class='item-lists'>
 
       <% if @products.present? %>
@@ -131,13 +131,13 @@
       <li class='list'>
         <%= link_to product_path(product.id) do %>
         <div class='item-img-content'>
-          <%= image_tag product.image.variant(resize:'500x500'), class: "item-img" if product.image.attached? %>
+          <%= image_tag product.image.variant(resize:'500x500'), class: "item-img" %>
 
           <%# <% if product.purchase.present? %>
-          <%# <div class='sold-out'> %>
-            <%# <span>Sold Out!!</span> %>
-          <%# </div> %>
-          <%# <% end %>
+          <%#div class='sold-out'>
+            <span>Sold Out!!</span>
+          </div>
+          <%# <% end %> 
 
         </div>
         <div class='item-info'>
@@ -145,7 +145,7 @@
             <%= product.name %>
           </h3>
           <div class='item-price'>
-            <span><%= product.price %>円<br><%= '配送料負担' %></span>
+            <span><%= product.price %>円<br><%= product.sent_fee.name %></span>
             <div class='star-btn'>
               <%= image_tag "star.png", class:"star-icon" %>
               <span class='star-count'>0</span>

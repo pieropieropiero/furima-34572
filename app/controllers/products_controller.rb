@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:new,:edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   before_action :set_product, only: [:show,:edit, :update] #多分後でいる, :destroy
   before_action :contributor_confirmation, only: [:edit, :update] #, :destroy
 

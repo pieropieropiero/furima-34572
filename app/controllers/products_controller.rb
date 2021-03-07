@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new,:edit, :update]
   before_action :set_product, only: [:show,:edit, :update] #多分後でいる, :destroy
+
   def index
     @products = Product.all.order("created_at DESC")
   end

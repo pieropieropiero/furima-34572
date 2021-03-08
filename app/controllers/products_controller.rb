@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
-  before_action :set_product, only: [:show,:edit, :update] #多分後でいる, :destroy
-  before_action :contributor_confirmation, only: [:edit, :update] #, :destroy
+  before_action :set_product, only: [:show,:edit, :update, :destroy] 
+  before_action :contributor_confirmation, only: [:edit, :update, :destroy] 
 
   def index
     @products = Product.all.order("created_at DESC")
@@ -31,6 +31,14 @@ class ProductsController < ApplicationController
       redirect_to root_path
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @product.destroy
+      redirect_to root_path
+    else
+      render :show
     end
   end
 

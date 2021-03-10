@@ -15,8 +15,9 @@ class Product < ApplicationRecord
   belongs_to_active_hash :sent_area
   belongs_to_active_hash :arrival_period
   
+
   belongs_to :user
   has_one_attached :image
-
+  has_one :history
 
 end

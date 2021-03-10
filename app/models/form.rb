@@ -1,6 +1,6 @@
 class Form
   include ActiveModel::Model
-  attr_accessor :product_id, :user_id, :postal_code, :sent_area_id , :city, :address, :building_name, :phone_number
+  attr_accessor :product_id, :user_id, :postal_code, :sent_area_id , :city, :address, :building_name, :phone_number, :token
 
   with_options presence: true do
     validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)" }
@@ -11,6 +11,7 @@ class Form
     validates :phone_number, numericality: { message: "is invalid."}
     validates :product_id
     validates :user_id
+    validates :token, presence: true
   end
 
   def save

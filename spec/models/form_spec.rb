@@ -17,8 +17,11 @@ RSpec.describe Form, type: :model do
     end
 
     context '商品の購入ができないとき' do
-      
-#クレジットカード情報
+      it "tokenが空では購入できない" do
+        @form.token = ""
+        @form.valid?
+        expect(@form.errors.full_messages).to include("Token can't be blank")
+      end
 
       it "postal_codeが空では購入できない" do
         @form.postal_code = ""

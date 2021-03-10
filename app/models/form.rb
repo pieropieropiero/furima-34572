@@ -11,7 +11,7 @@ class Form
     validates :phone_number, numericality: { message: "is invalid."}
     validates :product_id
     validates :user_id
-    validates :token, presence: true
+    validates :token
   end
 
   def save

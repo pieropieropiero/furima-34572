@@ -53,6 +53,10 @@ RSpec.describe Form, type: :model do
         @form.valid?
         expect(@form.errors.full_messages).to include("Address can't be blank")
       end
+      it 'bulding_nameが空でも購入できること' do
+        @form.building_name = ''
+        expect(@form).to be_valid
+      end
       it "phone_numberが空では購入できない" do
         @form.phone_number = ""
         @form.valid?
@@ -62,6 +66,16 @@ RSpec.describe Form, type: :model do
         @form.phone_number = "000000000000"
         @form.valid?
         expect(@form.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
+      end
+      it "user_idが空では購入できない" do
+        @form.user_id = ""
+        @form.valid?
+        expect(@form.errors.full_messages).to include("User can't be blank")
+      end
+      it "product_idが空では購入できない" do
+        @form.product_id = ""
+        @form.valid?
+        expect(@form.errors.full_messages).to include("Product can't be blank")
       end
     end
   end

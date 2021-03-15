@@ -7,12 +7,12 @@ class Form
     validates :sent_area_id, numericality: { other_than: 1 }
     validates :city
     validates :address
-    validates :phone_number, length: { maximum: 11 }
     validates :phone_number, numericality: { message: "is invalid."}
     validates :product_id
     validates :user_id
     validates :token
   end
+  validates :phone_number, length: { maximum: 11 }
 
   def save
     history = History.create(product_id: product_id, user_id: user_id)
